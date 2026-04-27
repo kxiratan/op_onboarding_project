@@ -1,0 +1,21 @@
+{
+  "total_items": 3,
+  "low_stock_count": 2,
+  "items_by_category": [
+    {
+      "category": "Hardware",
+      "item_count": 1,
+      "total_quantity": 5
+    },
+    {
+      "category": "Software",
+      "item_count": 1,
+      "total_quantity": 20
+    },
+    {
+      "category": "hardware",
+      "item_count": 1,
+      "total_quantity": 2
+    }
+  ]
+}

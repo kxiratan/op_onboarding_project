@@ -1,0 +1,35 @@
+{
+  "counts": {
+    "accepted": 1,
+    "uncertain": 1,
+    "verified": 1,
+    "discrepancy": 0
+  },
+  "uncertain_items_by_scene": [
+    {
+      "scene_id": "sample_scene_01",
+      "items": [
+        "USB Cable"
+      ]
+    }
+  ],
+  "audit_events": [
+    {
+      "timestamp": "2026-04-27T18:10:06.380726+00:00",
+      "scene_id": "sample_scene_01",
+      "item": "Arduino Kit",
+      "event_type": "VERIFIED",
+      "confidence": 0.93,
+      "recommended_action": "No action needed"
+    },
+    {
+      "timestamp": "2026-04-27T18:10:06.380752+00:00",
+      "scene_id": "sample_scene_01",
+      "item": "USB Cable",
+      "event_type": "UNCERTAIN",
+      "confidence": 0.58,
+      "recommended_action": "Manual review required before inventory update"
+    }
+  ],
+  "declared_vs_observed_note": "Declared inventory comes from database quantities; observed inventory comes from image-based ML predictions filtered by confidence policy."
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "scene_id": "sample_scene_01",
+    "predictions": [
+      {
+        "name": "Arduino Kit",
+        "confidence": 0.93
+      },
+      {
+        "name": "USB Cable",
+        "confidence": 0.58
+      }
+    ]
+  }
+]
