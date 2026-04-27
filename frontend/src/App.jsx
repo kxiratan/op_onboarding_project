@@ -2,13 +2,7 @@ import {useState, useEffect} from 'react'
 import InventoryList from "./InventoryList"
 import AddItemForm from './AddItemForm'
 import SystemInsights from './SystemInsights'
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
-
-function apiUrl(path) {
-  if (!API_BASE_URL) return path
-  return `${API_BASE_URL}${path}`
-}
+import BASE_URL from './api'
 
 function buildSummaryFromInventory(items) {
   const normalized = items.map((item) => ({
@@ -47,7 +41,7 @@ function App() {
   const [reconciliation, setReconciliation] = useState(null)
 
   const fetchInventory = () => {
-    fetch(apiUrl('/inventory'))
+    fetch(`${BASE_URL}/inventory`)
       .then(res => res.json())
       .then(data => {
         setInventory(data)
