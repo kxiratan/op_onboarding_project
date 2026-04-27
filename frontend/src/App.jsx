@@ -3,6 +3,13 @@ import InventoryList from "./InventoryList"
 import AddItemForm from './AddItemForm'
 import SystemInsights from './SystemInsights'
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
+
+function apiUrl(path) {
+  if (!API_BASE_URL) return path
+  return `${API_BASE_URL}${path}`
+}
+
 function buildSummaryFromInventory(items) {
   const normalized = items.map((item) => ({
     ...item,
@@ -40,7 +47,7 @@ function App() {
   const [reconciliation, setReconciliation] = useState(null)
 
   const fetchInventory = () => {
-    fetch('/inventory')
+    fetch(apiUrl('/inventory'))
       .then(res => res.json())
       .then(data => {
         setInventory(data)
@@ -49,11 +56,6 @@ function App() {
   }
 
   const fetchArtifacts = () => {
-    fetch('/artifacts/inventory_summary.json')
-      .then(res => res.ok ? res.json() : null)
-      .then(data => setSummary(data))
-      .catch(() => setSummary(null))
-
     fetch('/artifacts/reconciliation_report.json')
       .then(res => res.ok ? res.json() : null)
       .then(data => setReconciliation(data))

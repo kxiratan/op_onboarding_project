@@ -1,5 +1,12 @@
 import {useState} from 'react';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
+
+function apiUrl(path) {
+    if (!API_BASE_URL) return path
+    return `${API_BASE_URL}${path}`
+}
+
 function AddItemForm({onItemAdded}) {
     const [form, setForm] = useState({
         name: '',
@@ -14,7 +21,7 @@ function AddItemForm({onItemAdded}) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        fetch('/inventory', {
+        fetch(apiUrl('/inventory'), {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(form)

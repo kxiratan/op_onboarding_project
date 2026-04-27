@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
+app.use(cors());
+
+const PORT = process.env.PORT || 3000;
 
 let inventory = [
     {
@@ -37,6 +41,10 @@ app.post('/inventory', (req, res) => {
     res.json({message: "item added successfully"});
 });
 
-app.listen(3000, () => {
-    console.log("server running on http://localhost:3000");
+app.get('/health', (req, res) => {
+    res.json({status: "ok"});
+});
+
+app.listen(PORT, () => {
+    console.log(`server running on http://localhost:${PORT}`);
 });
