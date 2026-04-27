@@ -1,21 +1,6 @@
-const inventory = [
-    {
-        id: 1,
-        name: "Arduino Kit",
-        category: "Hardware",
-        quantity: 5,
-        status: "Available"
-    },
-    {
-        id: 2,
-        name: "Figma License",
-        category: "Software",
-        quantity: 20,
-        status: "Available"
-    }
-];
+import {useState, useEffect} from 'react'
 
-function InventoryList() {
+function InventoryList({inventory}) {
     return (
         <table>
             <thead>
